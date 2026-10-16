@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { convert } from "../services/currencyService";
 
-export const convertAmount = async(req: Request,res: Response) => {
+export const convertAmount = async (req: Request, res: Response) => {
   try {
     const { from, to, amount } = req.body
 
@@ -16,18 +16,18 @@ export const convertAmount = async(req: Request,res: Response) => {
     } else {
       const parsedAmount = typeof amount === 'number' ? amount : Number(amount);
       if (!Number.isFinite(parsedAmount)) {
-         res.status(400).json({ error: 'Amount must be a valid number.' });
+        res.status(400).json({ error: 'Amount must be a valid number.' });
       } else if (parsedAmount <= 0) {
-         res.status(400).json({ error: 'Amount must be greater than zero.' });
+        res.status(400).json({ error: 'Amount must be greater than zero.' });
       } else {
-        const data = await convert(from,to,amount)
+        const data = await convert(from, to, amount)
         res.status(200).json(data)
       }
     }
   } catch (error) {
-      const err = error as any
-      const status: number = err.status ? err.status : 500
-      const message: string = err.message
-      res.status(status).json({error: message})
+    const err = error as any
+    const status: number = err.status ? err.status : 500
+    const message: string = err.message
+    res.status(status).json({ error: message })
   }
 }
