@@ -1,7 +1,7 @@
 # Automated testing example projet
 This is an example project demonstrating automated testing. App is a simple currency converter app using publicly available API for getting currency exchange rates. It contains unit tests for backend. Mocking, stubbing and spying are demonstated. There are also API tests and E2E test for the frontend.
 
-
+<img width="1080" height="942" alt="image" src="https://github.com/user-attachments/assets/9d8b3688-58e9-48fe-be00-3c0c454a9332" />
 
 ## Setting up
 
